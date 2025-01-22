@@ -1,0 +1,5 @@
+IDE - Integrated Development Environment
+UX - User Experience
+SQL - Structured Query Language
+ML - Machine Learning
+AI - Artificial Intelligence
