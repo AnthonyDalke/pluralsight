@@ -4,6 +4,7 @@ class Employee:
         self.age = age
         self.position = position
         self.salary = salary
+        self._annual_salary = None
 
     def increase_salary(self, percent):
         self.salary += self.salary * (percent / 100)
@@ -22,13 +23,23 @@ class Employee:
     def salary(self, salary):
         if salary < 1000:
             raise ValueError(f"Minimum wage is $1,000.")
+        self._annual_salary = None
         self._salary = salary
+
+    @property
+    def annual_salary(self):
+        if self._annual_salary is None:
+            self._annual_salary = self.salary * 12
+        return self._annual_salary
 
 
 employee1 = Employee("Ji-Soo", 38, "developer", 1200)
 employee2 = Employee("Lauren", 44, "tester", 1000)
 
+# Test repr function
 print(eval(repr(employee1)))
 
-employee1.salary = 2000
-print(employee1.salary)
+# Test cached property
+print(employee1.annual_salary)
+employee1.salary = 1000
+print(employee1.annual_salary)
