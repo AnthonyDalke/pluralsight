@@ -14,8 +14,21 @@ class Employee:
     def __repr__(self):
         return f"Employee({repr(self.name)}, {repr(self.age)}, {repr(self.position)}, {repr(self.salary)})"
 
+    @property
+    def salary(self):
+        return self._salary
+
+    @salary.setter
+    def salary(self, salary):
+        if salary < 1000:
+            raise ValueError(f"Minimum wage is $1,000.")
+        self._salary = salary
+
 
 employee1 = Employee("Ji-Soo", 38, "developer", 1200)
 employee2 = Employee("Lauren", 44, "tester", 1000)
 
 print(eval(repr(employee1)))
+
+employee1.salary = 2000
+print(employee1.salary)
