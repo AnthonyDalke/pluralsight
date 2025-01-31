@@ -1,4 +1,6 @@
 class Employee:
+    __slots__ = ("name", "age", "salary")
+
     def __init__(self, name, age, salary):
         self.name = name
         self.age = age
@@ -14,7 +16,16 @@ class Tester(Employee):
         print(f"Tests completed!")
 
 
-class Developer(Employee):
+class SlotsInspectorMixin:
+    __slots__ = ()
+
+    def has_slots(self):
+        return hasattr(self, "__slots__")
+
+
+class Developer(SlotsInspectorMixin, Employee):
+    __slots__ = ("framework",)
+
     def __init__(self, name, age, salary, framework):
         super().__init__(name, age, salary)
         self.framework = framework
@@ -36,3 +47,7 @@ print(employee2.salary)
 # Test attribute addition
 print(employee2.name)
 print(employee2.framework)
+
+# Test mixin class
+print(employee2.has_slots())
+print(Developer.__mro__)

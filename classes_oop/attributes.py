@@ -1,4 +1,6 @@
 class Employee:
+    minimum_wage = 1000
+
     def __init__(self, name, age, position, salary):
         self.name = name
         self.age = age
@@ -21,8 +23,8 @@ class Employee:
 
     @salary.setter
     def salary(self, salary):
-        if salary < 1000:
-            raise ValueError(f"Minimum wage is $1,000.")
+        if salary < Employee.minimum_wage:
+            raise ValueError(f"Minimum wage is {Employee.minimum_wage}.")
         self._annual_salary = None
         self._salary = salary
 
@@ -37,9 +39,22 @@ employee1 = Employee("Ji-Soo", 38, "developer", 1200)
 employee2 = Employee("Lauren", 44, "tester", 1000)
 
 # Test repr function
+print(f"\nTesting repr function...")
 print(eval(repr(employee1)))
 
 # Test cached property
+print(f"\nTesting cached property...")
 print(employee1.annual_salary)
 employee1.salary = 1000
 print(employee1.annual_salary)
+
+# Test dict of class instance
+print(f"\nTesting dict of class instance...")
+e = Employee("Ji-Soo", 38, "developer", 1000)
+Employee.__dict__["increase_salary"](e, 20)
+print(e.salary)
+
+# Test default attribute
+print(f"\nTesting default attribute...")
+print(e.minimum_wage)
+print(Employee.minimum_wage)
