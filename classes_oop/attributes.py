@@ -1,6 +1,12 @@
 class Employee:
     minimum_wage = 1000
 
+    @classmethod
+    def change_minimum_wage(cls, new_wage):
+        if new_wage > 3000:
+            raise ValueError(f"Company went bankrupt")
+        cls.minimum_wage = new_wage
+
     def __init__(self, name, age, position, salary):
         self.name = name
         self.age = age
@@ -57,4 +63,10 @@ print(e.salary)
 # Test default attribute
 print(f"\nTesting default attribute...")
 print(e.minimum_wage)
+print(Employee.minimum_wage)
+
+# Test class attribute
+print(f"\nTesting class attribute...")
+print(Employee.minimum_wage)
+Employee.change_minimum_wage(200)
 print(Employee.minimum_wage)

@@ -1,4 +1,9 @@
+from datetime import date
+
+
 class Employee:
+    minimum_wage = 1000
+
     __slots__ = ("name", "age", "salary")
 
     def __init__(self, name, age, salary):
@@ -8,6 +13,12 @@ class Employee:
 
     def increase_salary(self, percent):
         self.salary += self.salary * (percent / 100)
+
+    @classmethod
+    def new_employee(cls, name, dob):
+        now = date.today()
+        age = now.year - dob.year - ((now.month, now.day) < (dob.month, dob.day))
+        return cls(name, age, cls.minimum_wage)
 
 
 class Tester(Employee):
@@ -51,3 +62,10 @@ print(employee2.framework)
 # Test mixin class
 print(employee2.has_slots())
 print(Developer.__mro__)
+
+# Test factory function
+print(f"\nTesting factory function...")
+e = Employee.new_employee("Mary", date(1991, 8, 12))
+print(e.name)
+print(e.age)
+print(e.salary)
