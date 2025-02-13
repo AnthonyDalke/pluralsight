@@ -1,7 +1,7 @@
-money_owed = float(input(f"How much money in dollars do you owe?\n"))
-apr = float(input(f"What annual percentage rate does the loan have?\n"))
-payment = float(input(f"How much in dollars will you pay off each month?\n"))
-months = int(input(f"How many results should factor into the calculation?\n"))
+money_owed = float(input("How much money in dollars do you owe?\n"))
+apr = float(input("What annual percentage rate does the loan have?\n"))
+payment = float(input("How much in dollars will you pay off each month?\n"))
+months = int(input("How many results should factor into the calculation?\n"))
 
 monthly_rate = apr / 100 / 12
 

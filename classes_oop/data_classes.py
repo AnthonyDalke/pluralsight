@@ -1,8 +1,9 @@
 from dataclasses import dataclass
 
 
-@dataclass(slots=True)
+@dataclass
 class Project:
+    __slots__ = ["name", "payment", "client"]
     name: str
     payment: int
     client: str

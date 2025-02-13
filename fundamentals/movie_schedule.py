@@ -5,15 +5,15 @@ current_movies = {
     "Christmas Vacation": "5:00 PM",
 }
 
-print(f"We currently show the following movies:")
+print("We currently show the following movies:")
 for key in current_movies:
     print(key)
 
-movie = input(f"Which movie's showtime do you want?\n")
+movie = input("Which movie's showtime do you want?\n")
 
 showtime = current_movies.get(movie)
 
-if showtime == None:
-    print(f"We don't have the requested movie.")
+if showtime is None:
+    print("We don't have the requested movie.")
 else:
     print(f"{movie} plays at {showtime}.")
