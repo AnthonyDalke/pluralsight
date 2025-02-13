@@ -1,4 +1,4 @@
-from employee import Employee, SalaryEmployee, HourlyEmployee, CommissionEmployee
+from employee import SalaryEmployee, HourlyEmployee, CommissionEmployee
 
 
 class Company:
@@ -9,13 +9,13 @@ class Company:
         self.employees.append(new_employee)
 
     def display_employees(self):
-        print(f"Current employees:")
+        print("Current employees:")
         for i in self.employees:
             print(i.fname, i.lname)
-        print(f"------------------")
+        print("------------------")
 
     def pay_employees(self):
-        print(f"Paying employees:")
+        print("Paying employees:")
         for i in self.employees:
             print(f"Paycheck for {i.fname} {i.lname}")
             print(f"Amount: ${i.calculate_paycheck():,.2f}")

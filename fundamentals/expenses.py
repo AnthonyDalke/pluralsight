@@ -1,4 +1,4 @@
-expenses = [10.50, 8, 5, 15, 20, 5, 3]
+expenses = [10, 8, 5, 15, 20, 5, 3]
 
 # Loop approach
 total_loop = 0

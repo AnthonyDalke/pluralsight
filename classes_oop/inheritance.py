@@ -24,7 +24,7 @@ class Employee:
 class Tester(Employee):
     def run_tests(self):
         print(f"Testing initiated by {self.name}...")
-        print(f"Tests completed!")
+        print("Tests completed!")
 
 
 class SlotsInspectorMixin:
@@ -64,7 +64,7 @@ print(employee2.has_slots())
 print(Developer.__mro__)
 
 # Test factory function
-print(f"\nTesting factory function...")
+print("\nTesting factory function...")
 e = Employee.new_employee("Mary", date(1991, 8, 12))
 print(e.name)
 print(e.age)

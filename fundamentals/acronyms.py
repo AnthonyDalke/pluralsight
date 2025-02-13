@@ -1,5 +1,5 @@
 def find_acronym():
-    lookup = input(f"Enter a software acronym to look up:\n")
+    lookup = input("Enter a software acronym to look up:\n")
 
     found = False
     try:
@@ -9,7 +9,7 @@ def find_acronym():
                     print(line)
                     found = True
                     break
-    except FileNotFoundError as e:
+    except FileNotFoundError:
         print("File not found")
         return
     if not found:
@@ -17,15 +17,15 @@ def find_acronym():
 
 
 def add_acronym():
-    acronym = input(f"Enter an acronym to add.\n")
-    definition = input(f"Enter a definition to add.\n")
+    acronym = input("Enter an acronym to add.\n")
+    definition = input("Enter a definition to add.\n")
 
     with open("acronyms.txt", "a") as file:
         file.write(acronym + " - " + definition + "\n")
 
 
 def main():
-    choice = input(f"Do you want to find(F) or add(A) an acronym?\n")
+    choice = input("Do you want to find(F) or add(A) an acronym?\n")
     if choice == "F":
         find_acronym()
     elif choice == "A":

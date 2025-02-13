@@ -1,4 +1,6 @@
-contacts = {
+from typing import Dict, List, Union
+
+contacts: Dict[str, Union[int, List[Dict[str, str]]]] = {
     "number": 4,
     "students": [
         {"name": "Sarah Holderness", "email": "sarah@example.com"},
@@ -9,5 +11,7 @@ contacts = {
 }
 
 print("Student emails:")
-for student in contacts["students"]:
-    print(student["email"])
+students = contacts.get("students")
+if isinstance(students, list):
+    for student in students:
+        print(student["email"])
