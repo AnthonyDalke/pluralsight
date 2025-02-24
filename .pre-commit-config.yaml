@@ -34,4 +34,5 @@ repos:
             ^design_patterns/simple_factory/autos/chevyvolt.py$|
             ^design_patterns/simple_factory/autos/fordfusion.py$
             ^design_patterns/simple_factory/autos/jeepsahara.py$
+            ^design_patterns/factory/factories/__init__.py$|
           )
