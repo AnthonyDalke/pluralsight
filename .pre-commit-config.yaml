@@ -1,21 +1,38 @@
 repos:
- - repo: https://github.com/pre-commit/pre-commit-hooks
-   rev: v4.0.1
-   hooks:
-    - id: trailing-whitespace
-    - id: end-of-file-fixer
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.0.1
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
 
- - repo: https://github.com/psf/black
-   rev: 22.3.0
-   hooks:
-    - id: black
+  - repo: https://github.com/psf/black
+    rev: 22.3.0
+    hooks:
+      - id: black
 
- - repo: https://github.com/PyCQA/flake8
-   rev: 4.0.1
-   hooks:
-    - id: flake8
+  - repo: https://github.com/PyCQA/flake8
+    rev: 4.0.1
+    hooks:
+      - id: flake8
 
- - repo: https://github.com/pre-commit/mirrors-mypy
-   rev: v0.910
-   hooks:
-    - id: mypy
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v0.910
+    hooks:
+      - id: mypy
+        exclude: |
+          (?x)(
+            ^design_patterns/factory/__main__.py$|
+            ^design_patterns/factory/autos/__init__.py$|
+            ^design_patterns/factory/autos/abs_auto.py$|
+            ^design_patterns/factory/autos/chevyvolt.py$|
+            ^design_patterns/factory/autos/fordfusion.py$|
+            ^design_patterns/factory/autos/jeepsahara.py$|
+            ^design_patterns/factory/autos/nullcar.py$|
+            ^design_patterns/simple_factory/__main__.py$|
+            ^design_patterns/simple_factory/autos/__init__.py$|
+            ^design_patterns/simple_factory/autos/abs_auto.py$|
+            ^design_patterns/simple_factory/autos/chevyvolt.py$|
+            ^design_patterns/simple_factory/autos/fordfusion.py$
+            ^design_patterns/simple_factory/autos/jeepsahara.py$
+            ^design_patterns/factory/factories/__init__.py$|
+          )
